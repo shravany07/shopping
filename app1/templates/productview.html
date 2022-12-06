@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/product.css' %}">
+
+    <!-- Vendor Script -->
+  
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="imgBx">
+            <img src="{{ v.img.url }}" alt="YOUR ITEM" style="width:400px ; margin-left:80px;">
+        </div>
+        <div class="details">
+            <div class="content">
+                <h2>{{ v.name }} <br>
+                    <span>Golden collection</span>
+                </h2>
+                <p>
+                    {{ v.des }}
+                </p>
+                
+                <h3> ₹{{ v.price }}</h3>
+                <button>Buy Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <a href="https://stylustechnepal.com" target="_blank">madhavijewellery@gmail.com</a>
+    </footer>
+
+
+    <script>
+        // Change The Picture and Associated Element Color when Color Options Are Clicked.
+        $(".product-colors span").click(function() {
+            $(".product-colors span").removeClass("active");
+            $(this).addClass("active");
+            $(".active").css("border-color", $(this).attr("data-color-sec"))
+            $("body").css("background", $(this).attr("data-color-primary"));
+            $(".content h2").css("color", $(this).attr("data-color-sec"));
+            $(".content h3").css("color", $(this).attr("data-color-sec"));
+            $(".container .imgBx").css("background", $(this).attr("data-color-sec"));
+            $(".container .details button").css("background", $(this).attr("data-color-sec"));
+            $(".imgBx img").attr('src', $(this).attr("data-pic"));
+        });
+    </script>
+
+</body>
+
+</html>

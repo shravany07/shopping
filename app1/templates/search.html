@@ -1,0 +1,129 @@
+{% extends 'master.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>welcome to our website</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body class="sub_page">
+
+  <!-- item section -->
+
+  <div class="item_section layout_padding2">
+    <div class="container">
+      <div class="item_container">
+        <div class="box">
+          <div class="price">
+            <h6>
+              Best PRICE
+            </h6>
+          </div>
+          <div class="img-box">
+            <img src="{% static 'images/i-1.png' %}" alt="">
+          </div>
+          <div class="name">
+            <h5>
+              Bracelet
+            </h5>
+          </div>
+        </div>
+        <div class="box">
+          <div class="price">
+            <h6>
+              Best PRICE
+            </h6>
+          </div>
+          <div class="img-box">
+            <img src="{% static 'images/i-2.png' %}" alt="">
+          </div>
+          <div class="name">
+            <h5>
+              Ring
+            </h5>
+          </div>
+        </div>
+        <div class="box">
+          <div class="price">
+            <h6>
+              Best PRICE
+            </h6>
+          </div>
+          <div class="img-box">
+            <img src="{% static 'images/i-3.png' %}" alt="">
+          </div>
+          <div class="name">
+            <h5>
+              Earings
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- end item section -->
+
+
+  <!-- price section -->
+  <section class="price_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Your Search Item
+        </h2>
+      </div>
+      </div>
+      <div class="container1" style="display:flex; flex-direction:row; flex-flow: wrap;">
+{% for i in p %}
+      <div class="price_container" style=" margin: 15px; text-align: center;">
+        <div class="box" style=" width:50%; ">
+          <div class="name">
+            <h6>
+             {{ i.name }}
+            </h6>
+          </div>
+          <div class="img-box">
+            <img src="{{ i.img.url }}" style="width:150px" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              ₹<span>{{ i.price }}</span>
+            </h5>
+            <a href="{% url 'proview' i.id %}">
+              VIEW
+            </a>
+          </div>
+        </div>
+      </div>
+{% endfor %}
+</div>
+    </div>
+  </section>
+{% endblock %}
+  <!-- end price section -->
